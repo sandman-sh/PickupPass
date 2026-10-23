@@ -90,7 +90,7 @@ function ringEvent(payload = {}) {
 async function api(req, res, url) {
   if (req.method === 'GET' && url.pathname === '/api/state') {
     return sendJson(res, 200, {
-      roster,
+      roster: roster.map(({ code, ...person }) => person),
       events,
       pending: events.find(e => e.status === 'attention') || null,
       integration: integrationStatus(),

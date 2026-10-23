@@ -37,6 +37,18 @@ The local development path works without external credentials:
 4. Select **Verify & decide**.
 5. Use **Simulate Ring arrival** to exercise another arrival and the safe rejection path.
 
+### Demo verification values
+
+The application includes a small built-in sample roster for local evaluation. These values are demo data only:
+
+| Person | Child | Pickup window | Code | Expected result |
+| --- | --- | --- | --- | --- |
+| Maya Patel | Aarav Patel | 3:30–5:00 PM | `4829` | Approved during the active window |
+| Jordan Lee | Noah Lee | 4:00–6:00 PM | `1936` | Approved during the active window |
+| Sam Rivera | Lena Rivera | 3:00–4:30 PM | `7714` | Approved during the active window |
+
+To test a safe rejection, choose any person and enter a different four-digit value such as `0000`. The server records the failed verification and prevents release. The claim codes are intentionally kept out of the browser state and are never real credentials.
+
 ## Ring Developer integration
 
 PickupPass uses the documented Ring Developer API, OAuth 2.0 account linking, and signed webhooks.
