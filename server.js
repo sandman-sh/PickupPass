@@ -1,5 +1,6 @@
 const http = require('node:http');
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 const { URL } = require('node:url');
 const { integrationStatus, listDevices, exchangeAuthorizationCode, verifyWebhookSignature, normalizeRingWebhook } = require('./ring-client');
@@ -9,7 +10,14 @@ const { explainDecision, FALLBACK_MODEL } = require('./bedrock-explainer');
 const PORT = Number(process.env.PORT || 4173);
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const DATA_DIR = path.join(__dirname, 'data');
-const DATA_FILE = path.join(DATA_DIR, 'events.json');
+const SOURCE_DATA_FILE = path.join(DATA_DIR, 'events.json');
+const serverlessHost = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.AWS_EXECUTION_ENV || __dirname.startsWith('/var/task'));
+const runtimeDataDir = process.env.PICKUPPASS_DATA_DIR
+  ? path.resolve(process.env.PICKUPPASS_DATA_DIR)
+  : serverlessHost
+    ? path.join(os.tmpdir(), 'pickuppass')
+    : DATA_DIR;
+const runtimeDataFile = path.join(runtimeDataDir, 'events.json');
 
 const roster = [
   { id: 'maya', name: 'Maya Patel', initials: 'MP', role: 'Parent', child: 'Aarav Patel', window: '3:30–5:00 PM', code: '4829', color: 'violet' },
@@ -23,12 +31,21 @@ const starterEvents = [
   { id: 'evt-0998', type: 'arrival', time: '2:56 PM', eventClock: '14:56', occurredAt: new Date().toISOString(), location: 'Front entrance', label: 'Arrival detected', detail: 'Visitor verified with a valid claim code.', status: 'approved', person: 'sam', child: 'Lena Rivera', policyStatus: 'approved', source: 'ring-simulator', deviceId: 'oakline-front-door', deviceName: 'Oakline Front Door', ringType: 'motion_detected' }
 ];
 
-fs.mkdirSync(DATA_DIR, { recursive: true });
-let events = fs.existsSync(DATA_FILE) ? JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')) : starterEvents;
+try { fs.mkdirSync(runtimeDataDir, { recursive: true }); } catch { /* The app can still run in memory. */ }
+const initialDataFile = fs.existsSync(runtimeDataFile) ? runtimeDataFile : SOURCE_DATA_FILE;
+let events = fs.existsSync(initialDataFile) ? JSON.parse(fs.readFileSync(initialDataFile, 'utf8')) : starterEvents;
 const processedRingRequests = new Set(events.map(event => event.requestId).filter(Boolean));
 
 function persist() {
-  fs.writeFileSync(DATA_FILE, JSON.stringify(events.slice(0, 24), null, 2));
+  try {
+    fs.mkdirSync(runtimeDataDir, { recursive: true });
+    fs.writeFileSync(runtimeDataFile, JSON.stringify(events.slice(0, 24), null, 2));
+  } catch (error) {
+    // Serverless filesystems are ephemeral or read-only. Keep the current
+    // invocation usable instead of failing the Ring action after the state
+    // has already been updated in memory.
+    console.warn(`PickupPass could not persist runtime state: ${error.message}`);
+  }
 }
 
 function sendJson(res, status, data) {

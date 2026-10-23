@@ -29,6 +29,8 @@ npm start
 
 Open [http://localhost:4173](http://localhost:4173).
 
+For serverless hosts with a read-only application directory, runtime event state is written to the platform's temporary directory automatically. Set `PICKUPPASS_DATA_DIR` only when your host provides a writable persistent volume. Temporary storage can be cleared between instances, so production deployments should use a durable database for long-term audit history.
+
 The local development path works without external credentials:
 
 1. Select **Review arrival**.
