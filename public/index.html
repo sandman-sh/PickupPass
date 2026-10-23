@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f8fb" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>PickupPass — Safe handoffs, without the guesswork</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand"><span class="brand-mark">P</span><span>PickupPass</span></div>
+        <button class="location-switcher" id="site-switcher"><span class="location-dot"></span><div><strong>Oakline Center</strong><small>Front desk</small></div><span class="chevron" data-icon="chevron-down"></span></button>
+        <nav class="nav"><a class="active" href="#overview"><span data-icon="home"></span>Overview</a><a href="#handoffs"><span data-icon="handoff"></span>Handoffs <b id="nav-count">1</b></a><a href="#roster"><span data-icon="users"></span>Pickup roster</a><a href="#history"><span data-icon="history"></span>Audit trail</a></nav>
+        <div class="sidebar-bottom"><div class="integration-card"><div class="integration-top"><span class="ring-icon" data-icon="ring"></span><span>Ring by Amazon</span><span class="live-dot"></span></div><small id="integration-mode">Sandbox mode</small><button class="integration-action" id="sync-ring">Sync devices <span data-icon="arrow-up-right"></span></button></div><div class="user"><div class="avatar avatar-navy">AR</div><div><strong>Alex Rivera</strong><small>Site coordinator</small></div><button class="more-btn" aria-label="Open profile menu"><span data-icon="more"></span></button></div></div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar"><div><p class="eyebrow">WEDNESDAY, OCTOBER 22 <span class="status-pill"><i></i>LIVE SHIFT</span></p><h1>Good afternoon, Alex.</h1><p class="subhead">Here’s what needs your attention before the next handoff.</p></div><div class="top-actions"><button class="icon-btn" id="notifications-btn" aria-label="Notifications"><span data-icon="bell"></span><span class="notification-dot"></span></button><button class="profile-btn" id="profile-btn"><span class="avatar avatar-navy">AR</span><span>Alex</span><span data-icon="chevron-down"></span></button></div></header>
+
+        <section class="hero-grid" id="overview">
+          <div class="hero-card"><div><span class="label">NEXT ACTION</span><h2 id="hero-title">One arrival needs verification</h2><p id="hero-detail">A visitor is waiting at the front entrance. Check the roster before you release.</p><button class="primary-btn" id="open-verification">Review arrival <span>→</span></button></div><div class="hero-illustration"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div><div class="person-icon">♙</div><div class="signal signal-one"></div><div class="signal signal-two"></div></div></div>
+          <div class="metric-card"><div class="metric-heading"><span>Today’s handoffs</span><span class="metric-icon" data-icon="trend-up"></span></div><div class="metric-value">12 <span>/ 14</span></div><div class="progress"><i style="width: 86%"></i></div><p><strong>86%</strong> completed without escalation</p><div class="mini-chart"><span style="height:30%"></span><span style="height:45%"></span><span style="height:36%"></span><span style="height:62%"></span><span style="height:52%"></span><span style="height:76%"></span><span class="today" style="height:92%"></span></div></div>
+        </section>
+
+        <section class="section-head" id="handoffs"><div><h2>Needs your attention</h2><p>Resolve an arrival before releasing a child.</p></div><button class="secondary-btn" id="simulate-arrival"><span data-icon="plus"></span> Simulate Ring arrival</button></section>
+        <section class="attention-card" id="attention-card"><div class="attention-icon" data-icon="alert"></div><div class="attention-copy"><div class="inline-title"><h3 id="attention-title">Arrival at front entrance</h3><span class="warning-tag">VERIFY NOW</span></div><p id="attention-detail">Ring detected a visitor at 3:42 PM. No child can be released until the pickup claim is verified.</p><div class="event-meta"><span><span data-icon="clock"></span> <b id="attention-time">3:42 PM</b></span><span><span data-icon="pin"></span> <b id="attention-location">Front entrance</b></span><span><span data-icon="ring"></span> <b id="attention-source">Ring event</b></span></div><div class="event-evidence"><span class="evidence-label">SOURCE CONTEXT</span><strong id="attention-device">Oakline Front Door</strong><span class="evidence-divider">·</span><span id="attention-type">motion detected</span></div></div><button class="round-arrow" id="attention-arrow" aria-label="Review arrival"><span data-icon="arrow-right"></span></button></section>
+
+        <section class="content-grid"><div class="panel" id="roster"><div class="panel-head"><div><h2>Pickup roster</h2><p>Authorized for today’s windows</p></div><button class="text-btn" id="manage-roster">Manage roster <span data-icon="arrow-up-right"></span></button></div><div class="roster-list" id="roster-list"></div></div><div class="panel" id="history"><div class="panel-head"><div><h2>Recent activity</h2><p>Every decision, time-stamped</p></div><button class="text-btn" id="view-audit">View audit trail <span data-icon="arrow-up-right"></span></button></div><div class="activity-list" id="activity-list"></div></div></section>
+        <footer><span>PickupPass helps teams make safe, calm handoffs.</span><span>Last synced just now <i class="sync-dot"></i></span></footer>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="modal" aria-hidden="true"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="close-btn" id="close-modal" aria-label="Close verification"><span data-icon="close"></span></button><div class="modal-kicker"><span class="attention-icon small" data-icon="alert"></span><span>RING ARRIVAL · <span id="modal-time">3:42 PM</span></span></div><h2 id="modal-title">Who is picking up today?</h2><p class="modal-subtitle">Select the visitor’s claimed identity, then verify the one-time code they provide.</p><div class="person-options" id="person-options"></div><label class="code-label" for="claim-code">Secure claim code <span>4 digits</span></label><div class="code-row"><input id="claim-code" maxlength="4" inputmode="numeric" placeholder="••••" /><button class="primary-btn" id="verify-btn">Verify & decide <span data-icon="arrow-right"></span></button></div><div class="modal-result" id="modal-result"></div><div class="decision-explanation" id="decision-explanation" hidden></div><button class="escalate-btn" id="escalate-btn">I can’t verify this person — escalate to guardian</button><p class="privacy-note">PickupPass never uses face recognition. The visitor’s claim code and the authorized roster make the decision.</p></section></div>
+    <div class="drawer-backdrop" id="drawer" aria-hidden="true"><aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title"><div class="drawer-head"><div><p class="drawer-kicker" id="drawer-kicker">PICKUPPASS</p><h2 id="drawer-title">Details</h2></div><button class="close-btn" id="close-drawer" aria-label="Close details"><span data-icon="close"></span></button></div><div class="drawer-body" id="drawer-body"></div></aside></div>
+    <div class="toast" id="toast"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,303 @@
+[
+  {
+    "id": "evt-1792620449950-b4rvs",
+    "type": "arrival",
+    "time": "5:30 PM",
+    "eventClock": "17:30",
+    "occurredAt": "2026-10-21T22:07:29.950Z",
+    "location": "Front entrance",
+    "label": "Pickup window expired",
+    "detail": "Sam Rivera's pickup window ended at 4:30 PM.",
+    "status": "rejected",
+    "person": "sam",
+    "source": "ring-simulator",
+    "deviceId": "oakline-front-door",
+    "deviceName": "Oakline Front Door",
+    "ringType": "motion_detected",
+    "child": "Lena Rivera",
+    "policyStatus": "window_expired",
+    "policy": {
+      "personId": "sam",
+      "child": "Lena Rivera",
+      "eventMinutes": 1050,
+      "window": "3:00–4:30 PM",
+      "status": "window_expired",
+      "label": "Pickup window expired",
+      "title": "Window expired",
+      "detail": "Sam Rivera's pickup window ended at 4:30 PM.",
+      "nextAction": "Contact the guardian before releasing the child."
+    },
+    "decision": {
+      "status": "window_expired",
+      "actor": "Alex Rivera",
+      "decidedAt": "2026-10-21T22:07:29.954Z",
+      "personId": "sam",
+      "child": "Lena Rivera"
+    },
+    "decidedAt": "2026-10-21T22:07:29.954Z",
+    "decidedBy": "Alex Rivera",
+    "explanation": {
+      "provider": "PickupPass policy explainer",
+      "mode": "fallback",
+      "model": "amazon.nova-lite-v1:0",
+      "text": "Window expired. Sam Rivera's pickup window ended at 4:30 PM. Next step: Contact the guardian before releasing the child.",
+      "source": {
+        "event": "ring-simulator",
+        "device": "Oakline Front Door",
+        "person": "Sam Rivera"
+      }
+    }
+  },
+  {
+    "id": "evt-1792620449935-hwasu",
+    "type": "arrival",
+    "time": "2:30 PM",
+    "eventClock": "14:30",
+    "occurredAt": "2026-10-21T22:07:29.935Z",
+    "location": "Front entrance",
+    "label": "Pickup window not open",
+    "detail": "Sam Rivera is authorized, but the pickup window begins at 3:00 PM.",
+    "status": "rejected",
+    "person": "sam",
+    "source": "ring-simulator",
+    "deviceId": "oakline-front-door",
+    "deviceName": "Oakline Front Door",
+    "ringType": "motion_detected",
+    "child": "Lena Rivera",
+    "policyStatus": "too_early",
+    "policy": {
+      "personId": "sam",
+      "child": "Lena Rivera",
+      "eventMinutes": 870,
+      "window": "3:00–4:30 PM",
+      "status": "too_early",
+      "label": "Pickup window not open",
+      "title": "Too early to release",
+      "detail": "Sam Rivera is authorized, but the pickup window begins at 3:00 PM.",
+      "nextAction": "Wait until 3:00 PM or contact the guardian."
+    },
+    "decision": {
+      "status": "too_early",
+      "actor": "Alex Rivera",
+      "decidedAt": "2026-10-21T22:07:29.946Z",
+      "personId": "sam",
+      "child": "Lena Rivera"
+    },
+    "decidedAt": "2026-10-21T22:07:29.946Z",
+    "decidedBy": "Alex Rivera",
+    "explanation": {
+      "provider": "PickupPass policy explainer",
+      "mode": "fallback",
+      "model": "amazon.nova-lite-v1:0",
+      "text": "Too early to release. Sam Rivera is authorized, but the pickup window begins at 3:00 PM. Next step: Wait until 3:00 PM or contact the guardian.",
+      "source": {
+        "event": "ring-simulator",
+        "device": "Oakline Front Door",
+        "person": "Sam Rivera"
+      }
+    }
+  },
+  {
+    "id": "evt-1792620433152-e4rn9",
+    "type": "arrival",
+    "time": "3:37 AM",
+    "eventClock": "15:42",
+    "occurredAt": "2026-10-21T22:07:13.152Z",
+    "location": "Front entrance",
+    "label": "Escalated to guardian",
+    "detail": "Staff requested a guardian callback before releasing the child.",
+    "status": "escalated",
+    "person": null,
+    "source": "ring-simulator",
+    "deviceId": "oakline-front-door",
+    "deviceName": "Oakline Front Door",
+    "ringType": "motion_detected",
+    "policyStatus": "escalated",
+    "decision": {
+      "status": "escalated",
+      "actor": "Alex Rivera",
+      "decidedAt": "2026-10-21T22:07:15.864Z",
+      "nextAction": "Wait for a guardian callback before releasing."
+    }
+  },
+  {
+    "id": "evt-1792620420577-sp5j4",
+    "type": "arrival",
+    "time": "3:37 AM",
+    "eventClock": "15:42",
+    "occurredAt": "2026-10-21T22:07:00.578Z",
+    "location": "Front entrance",
+    "label": "Verification failed",
+    "detail": "The code did not match Sam Rivera's secure claim code.",
+    "status": "rejected",
+    "person": "sam",
+    "source": "ring-simulator",
+    "deviceId": "oakline-front-door",
+    "deviceName": "Oakline Front Door",
+    "ringType": "motion_detected",
+    "child": "Lena Rivera",
+    "policyStatus": "code_invalid",
+    "policy": {
+      "personId": "sam",
+      "child": "Lena Rivera",
+      "eventMinutes": 942,
+      "window": "3:00–4:30 PM",
+      "status": "code_invalid",
+      "label": "Verification failed",
+      "title": "Do not release",
+      "detail": "The code did not match Sam Rivera's secure claim code.",
+      "nextAction": "Ask the visitor to contact the authorized guardian."
+    },
+    "decision": {
+      "status": "code_invalid",
+      "actor": "Alex Rivera",
+      "decidedAt": "2026-10-21T22:07:01.576Z",
+      "personId": "sam",
+      "child": "Lena Rivera"
+    },
+    "decidedAt": "2026-10-21T22:07:01.576Z",
+    "decidedBy": "Alex Rivera",
+    "explanation": {
+      "provider": "PickupPass policy explainer",
+      "mode": "fallback",
+      "model": "amazon.nova-lite-v1:0",
+      "text": "Do not release. The code did not match Sam Rivera's secure claim code. Next step: Ask the visitor to contact the authorized guardian.",
+      "source": {
+        "event": "ring-simulator",
+        "device": "Oakline Front Door",
+        "person": "Sam Rivera"
+      }
+    }
+  },
+  {
+    "id": "evt-1792620417450-release",
+    "type": "release",
+    "time": "3:36 AM",
+    "eventClock": "15:42",
+    "occurredAt": "2026-10-21T22:06:57.469Z",
+    "location": "Front entrance",
+    "label": "Handoff completed",
+    "detail": "Maya Patel picked up Aarav Patel.",
+    "status": "approved",
+    "person": "maya",
+    "child": "Aarav Patel",
+    "policyStatus": "approved",
+    "policy": {
+      "personId": "maya",
+      "child": "Aarav Patel",
+      "eventMinutes": 942,
+      "window": "3:30–5:00 PM",
+      "status": "approved",
+      "label": "Handoff approved",
+      "title": "Release approved",
+      "detail": "Maya Patel is authorized to pick up Aarav Patel within the active window.",
+      "nextAction": "Release the child and keep the handoff record."
+    },
+    "decision": {
+      "status": "approved",
+      "actor": "Alex Rivera",
+      "decidedAt": "2026-10-21T22:06:57.450Z",
+      "personId": "maya",
+      "child": "Aarav Patel"
+    },
+    "explanation": {
+      "provider": "PickupPass policy explainer",
+      "mode": "fallback",
+      "model": "amazon.nova-lite-v1:0",
+      "text": "Release approved. Maya Patel is authorized to pick up Aarav Patel within the active window. Next step: Release the child and keep the handoff record.",
+      "source": {
+        "event": "ring-simulator",
+        "device": "Oakline Front Door",
+        "person": "Maya Patel"
+      }
+    },
+    "source": "ring-simulator",
+    "deviceId": "oakline-front-door",
+    "deviceName": "Oakline Front Door",
+    "ringType": "motion_detected"
+  },
+  {
+    "id": "evt-1001",
+    "type": "arrival",
+    "time": "3:42 PM",
+    "eventClock": "15:42",
+    "occurredAt": "2026-10-21T22:06:22.585Z",
+    "location": "Front entrance",
+    "label": "Handoff approved",
+    "detail": "Maya Patel is authorized to pick up Aarav Patel within the active window.",
+    "status": "approved",
+    "person": "maya",
+    "source": "ring-simulator",
+    "deviceId": "oakline-front-door",
+    "deviceName": "Oakline Front Door",
+    "ringType": "motion_detected",
+    "child": "Aarav Patel",
+    "policyStatus": "approved",
+    "policy": {
+      "personId": "maya",
+      "child": "Aarav Patel",
+      "eventMinutes": 942,
+      "window": "3:30–5:00 PM",
+      "status": "approved",
+      "label": "Handoff approved",
+      "title": "Release approved",
+      "detail": "Maya Patel is authorized to pick up Aarav Patel within the active window.",
+      "nextAction": "Release the child and keep the handoff record."
+    },
+    "decision": {
+      "status": "approved",
+      "actor": "Alex Rivera",
+      "decidedAt": "2026-10-21T22:06:57.450Z",
+      "personId": "maya",
+      "child": "Aarav Patel"
+    },
+    "decidedAt": "2026-10-21T22:06:57.450Z",
+    "decidedBy": "Alex Rivera",
+    "explanation": {
+      "provider": "PickupPass policy explainer",
+      "mode": "fallback",
+      "model": "amazon.nova-lite-v1:0",
+      "text": "Release approved. Maya Patel is authorized to pick up Aarav Patel within the active window. Next step: Release the child and keep the handoff record.",
+      "source": {
+        "event": "ring-simulator",
+        "device": "Oakline Front Door",
+        "person": "Maya Patel"
+      }
+    }
+  },
+  {
+    "id": "evt-0999",
+    "type": "release",
+    "time": "3:18 PM",
+    "eventClock": "15:18",
+    "occurredAt": "2026-10-21T22:06:22.586Z",
+    "location": "Front entrance",
+    "label": "Handoff completed",
+    "detail": "Jordan Lee picked up Noah Lee.",
+    "status": "approved",
+    "person": "jordan",
+    "child": "Noah Lee",
+    "policyStatus": "approved",
+    "source": "ring-simulator",
+    "deviceId": "oakline-front-door",
+    "deviceName": "Oakline Front Door"
+  },
+  {
+    "id": "evt-0998",
+    "type": "arrival",
+    "time": "2:56 PM",
+    "eventClock": "14:56",
+    "occurredAt": "2026-10-21T22:06:22.586Z",
+    "location": "Front entrance",
+    "label": "Arrival detected",
+    "detail": "Visitor verified with a valid claim code.",
+    "status": "approved",
+    "person": "sam",
+    "child": "Lena Rivera",
+    "policyStatus": "approved",
+    "source": "ring-simulator",
+    "deviceId": "oakline-front-door",
+    "deviceName": "Oakline Front Door",
+    "ringType": "motion_detected"
+  }
+]

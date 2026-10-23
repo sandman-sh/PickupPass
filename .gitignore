@@ -1,0 +1,4 @@
+.env
+data/events.json
+data/ring-tokens.json
+node_modules/

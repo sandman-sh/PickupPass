@@ -1,0 +1,36 @@
+<svg width="1600" height="460" viewBox="0 0 1600 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">PickupPass</title>
+  <desc id="desc">Safe handoffs, without the guesswork.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1600" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111D35"/>
+      <stop offset="0.58" stop-color="#1B315F"/>
+      <stop offset="1" stop-color="#2962FF"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="1120" y1="32" x2="1500" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#AFC2FF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#77E0B2" stop-opacity="0.08"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#081126" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="460" rx="30" fill="url(#background)"/>
+  <circle cx="1380" cy="220" r="250" fill="url(#glow)"/>
+  <circle cx="1380" cy="220" r="185" stroke="#B8C8FF" stroke-opacity="0.24" stroke-width="2"/>
+  <circle cx="1380" cy="220" r="125" stroke="#B8C8FF" stroke-opacity="0.28" stroke-width="2"/>
+  <circle cx="1380" cy="220" r="68" stroke="#B8C8FF" stroke-opacity="0.4" stroke-width="2"/>
+  <path d="M1380 136C1335 136 1298 173 1298 218C1298 263 1335 300 1380 300C1425 300 1462 263 1462 218C1462 173 1425 136 1380 136Z" stroke="#FFFFFF" stroke-opacity="0.78" stroke-width="3"/>
+  <path d="M1380 177C1357 177 1339 195 1339 218C1339 241 1357 259 1380 259C1403 259 1421 241 1421 218C1421 195 1403 177 1380 177Z" fill="#77E0B2" fill-opacity="0.86"/>
+  <path d="M1380 74V111M1380 325V362M1236 218H1273M1487 218H1524" stroke="#C9D5FF" stroke-opacity="0.55" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="1208" cy="118" r="8" fill="#FFD27A"/>
+  <circle cx="1532" cy="337" r="8" fill="#77E0B2"/>
+  <g filter="url(#shadow)">
+    <rect x="116" y="112" width="92" height="92" rx="26" fill="#2962FF"/>
+    <path d="M162 136L184 145V163C184 178 175 190 162 197C149 190 140 178 140 163V145L162 136Z" fill="white" fill-opacity="0.96"/>
+    <path d="M151 165L158 172L174 155" stroke="#2962FF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="116" y="276" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700" letter-spacing="-2">PickupPass</text>
+  <text x="120" y="332" fill="#C9D5FF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400" letter-spacing="0.4">Safe handoffs, without the guesswork.</text>
+  <rect x="120" y="373" width="210" height="4" rx="2" fill="#77E0B2"/>
+</svg>

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "ring-ring-req-qa-001",
+    "type": "arrival",
+    "ringType": "motion_detected",
+    "time": "2:30 PM",
+    "location": "Front entrance",
+    "label": "Verification failed",
+    "detail": "The code did not match Jordan Lee's secure claim code.",
+    "status": "rejected",
+    "person": "jordan",
+    "source": "ring-webhook",
+    "deviceId": "doorbell-1",
+    "requestId": "ring-req-qa-001"
+  },
+  {
+    "id": "evt-1792619102321",
+    "type": "arrival",
+    "time": "3:15 AM",
+    "location": "Front entrance",
+    "label": "Escalated to guardian",
+    "detail": "Staff requested a guardian callback before releasing the child.",
+    "status": "escalated",
+    "person": null,
+    "source": "ring-simulator",
+    "deviceId": "simulator-doorbell"
+  },
+  {
+    "id": "evt-1792619097609",
+    "type": "arrival",
+    "time": "3:14 AM",
+    "location": "Front entrance",
+    "label": "Verification failed",
+    "detail": "The code did not match Jordan Lee's secure claim code.",
+    "status": "rejected",
+    "person": "jordan",
+    "source": "ring-simulator",
+    "deviceId": "simulator-doorbell"
+  },
+  {
+    "id": "evt-1792619091000-release",
+    "type": "release",
+    "time": "3:14 AM",
+    "location": "Front entrance",
+    "label": "Handoff completed",
+    "detail": "Maya Patel picked up Aarav Patel.",
+    "status": "approved",
+    "person": "maya"
+  },
+  {
+    "id": "evt-1001",
+    "type": "arrival",
+    "time": "3:42 PM",
+    "location": "Front entrance",
+    "label": "Handoff approved",
+    "detail": "Maya Patel is authorized to pick up Aarav Patel.",
+    "status": "approved",
+    "person": "maya"
+  },
+  {
+    "id": "evt-0999",
+    "type": "release",
+    "time": "3:18 PM",
+    "location": "Front entrance",
+    "label": "Handoff completed",
+    "detail": "Jordan Lee picked up Noah Lee.",
+    "status": "approved",
+    "person": "jordan"
+  },
+  {
+    "id": "evt-0998",
+    "type": "arrival",
+    "time": "2:56 PM",
+    "location": "Front entrance",
+    "label": "Arrival detected",
+    "detail": "Visitor verified with a valid claim code.",
+    "status": "approved",
+    "person": "sam"
+  }
+]
